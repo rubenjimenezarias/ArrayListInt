@@ -116,5 +116,16 @@ public class ArraylistInt
         }
         return index;
     }
-    
+    /**
+     * devuelve true o false dependiendo si la lista esta llena o vacia
+     */
+    public boolean isEmpty()
+    {
+        boolean vacia = false;
+        if (lista.length == 0)
+        {
+            vacia = true;
+        }
+        return vacia;
+    }
 }
