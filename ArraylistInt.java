@@ -157,4 +157,12 @@ public class ArraylistInt
         }
         lista = nuevalista;
     }
+    /**
+     * Introducir un elemento int a la array en la posicion que quieras
+     */
+    public int size()
+    {
+        int size = lista.length;
+        return size;
+    }
 }
