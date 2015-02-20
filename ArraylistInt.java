@@ -38,18 +38,30 @@ public class ArraylistInt
      */
     public void add(int index, int elemento)
     {
+        nuevalista = new int[lista.length + 1];
+        boolean introducido = false;
         int cont = 0;
-        boolean modificado = false;
-        while (cont < lista.length && modificado == false)
+        while (cont < nuevalista.length)
         {
-            if (index == cont)
+            if (cont == index)
             {
-                lista[cont] = elemento;
-                modificado = true;
+                introducido = true;
+                nuevalista[cont]= elemento;
             }
-            cont ++;
+            else
+            {
+                if (introducido == true)// añade a la posicion menos una
+                {
+                    nuevalista[cont] = lista[cont - 1];
+                }
+                else // añade normal
+                {
+                    nuevalista[cont] = lista[cont];
+                }
+            }
+            cont++;
         }
-        nuevalista = lista;
+        lista = nuevalista;
     }
     /**
      * Vaciar la lista
