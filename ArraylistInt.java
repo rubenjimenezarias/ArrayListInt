@@ -177,4 +177,21 @@ public class ArraylistInt
         int size = lista.length;
         return size;
     }
+     /**
+     * Reemplaza el indice que indiques por el elemento indicado
+     */
+    public void set(int index, int elemento)
+    {
+        int cont = 0;
+        boolean modificado = false;
+        while (cont < lista.length && modificado == false)
+        {
+            if (index == cont)
+            {
+                lista[cont] = elemento;
+            }
+            cont ++;
+        }
+        nuevalista = lista;
+    }
 }
