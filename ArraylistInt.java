@@ -96,5 +96,25 @@ public class ArraylistInt
         }
         return elemento;
     }
+    /**
+     * devuelve el indice del elemento indicado
+     * Si el valor no esta en la lista devuelve -1.
+     */
+    public int indexOff(int elemento)
+    {
+        int cont = 0;
+        boolean encontrado = false;
+        int index = -1;
+        while (cont < lista.length && encontrado == false)
+        {
+            if (elemento == lista[cont])
+            {
+                index = cont;
+                encontrado = true;
+            }
+            cont ++;
+        }
+        return index;
+    }
     
 }
