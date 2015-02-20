@@ -45,9 +45,35 @@ public class ArraylistInt
             if (index == cont)
             {
                 lista[cont] = elemento;
+                modificado = true;
             }
             cont ++;
         }
         nuevalista = lista;
+    }
+    /**
+     * Vaciar la lista
+     */
+    public void clear()
+    {
+        lista = new int[0];
+        nuevalista = new int [0];
+    }
+    /**
+     * devuelve true o false dependiendo si contiene el elemento pasado por parametro
+     */
+    public boolean contains(int elemento)
+    {
+        int cont = 0;
+        boolean encontrado = false;
+        while (cont < lista.length && encontrado == false)
+        {
+            if (elemento == lista[cont])
+            {
+                encontrado = true;
+            }
+            cont ++;
+        }
+        return encontrado;
     }
 }
