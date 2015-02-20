@@ -76,4 +76,25 @@ public class ArraylistInt
         }
         return encontrado;
     }
+    /**
+     * devuelve el valor de la posicion indicada.
+     * Si no es una posicion correcta devuelve -1.
+     */
+    public int get(int index)
+    {
+        int cont = 0;
+        boolean encontrado = false;
+        int elemento = -1;
+        while (cont < lista.length && encontrado == false)
+        {
+            if (index == cont)
+            {
+                elemento = lista[cont];
+                encontrado = true;
+            }
+            cont ++;
+        }
+        return elemento;
+    }
+    
 }
