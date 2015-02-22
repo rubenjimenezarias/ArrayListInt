@@ -145,29 +145,32 @@ public class ArraylistInt
      */
     public void remove(int index)
     {
-        nuevalista = new int[lista.length - 1];
-        boolean borrado = false;
-        int cont = 0;
-        while (cont < lista.length)
+        if (index >= 0 && index < lista.length)
         {
-            if (cont == index)
+            nuevalista = new int[lista.length - 1];
+            boolean borrado = false;
+            int cont = 0;
+            while (cont < lista.length)
             {
-                borrado = true;
-            }
-            else
-            {
-                if (borrado == true)// añade a la posicion menos una
+                if (cont == index)
                 {
-                    nuevalista[cont-1] = lista[cont];
+                    borrado = true;
                 }
-                else // añade normal
+                else
                 {
-                    nuevalista[cont] = lista[cont];
+                    if (borrado == true)// añade a la posicion menos una
+                    {
+                        nuevalista[cont-1] = lista[cont];
+                    }
+                    else // añade normal
+                    {
+                        nuevalista[cont] = lista[cont];
+                    }
                 }
+                cont++;
             }
-            cont++;
+            lista = nuevalista;
         }
-        lista = nuevalista;
     }
     /**
      * Introducir un elemento int a la array en la posicion que quieras
