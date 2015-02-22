@@ -7,9 +7,8 @@
  */
 public class ArraylistInt
 {
-    // instance variables - replace the example below with your own
+    //lista array
     private int[] lista;
-    private int[] nuevalista;
 
     /**
      * Constructor for objects of class ArraylistInt
@@ -25,7 +24,7 @@ public class ArraylistInt
      */
     public void add(int elemento)
     {
-        nuevalista = new int[lista.length + 1];
+        int[] nuevalista = new int[lista.length + 1];
         for (int cont = 0;cont < lista.length; cont++)
         {
             nuevalista[cont] = lista[cont];
@@ -38,30 +37,33 @@ public class ArraylistInt
      */
     public void add(int index, int elemento)
     {
-        nuevalista = new int[lista.length + 1];
-        boolean introducido = false;
-        int cont = 0;
-        while (cont < nuevalista.length)
+        if (index >= 0 && index <= lista.length)
         {
-            if (cont == index)
+            int[] nuevalista = new int[lista.length + 1];
+            boolean introducido = false;
+            int cont = 0;
+            while (cont < nuevalista.length)
             {
-                introducido = true;
-                nuevalista[cont]= elemento;
-            }
-            else
-            {
-                if (introducido == true)// añade a la posicion menos una
+                if (cont == index)
                 {
-                    nuevalista[cont] = lista[cont - 1];
+                    introducido = true;
+                    nuevalista[cont]= elemento;
                 }
-                else // añade normal
+                else
                 {
-                    nuevalista[cont] = lista[cont];
+                    if (introducido == true)// añade a la posicion menos una
+                    {
+                        nuevalista[cont] = lista[cont - 1];
+                    }
+                    else // añade normal
+                    {
+                        nuevalista[cont] = lista[cont];
+                    }
                 }
+                cont++;
             }
-            cont++;
+            lista = nuevalista;
         }
-        lista = nuevalista;
     }
     /**
      * Vaciar la lista
@@ -69,7 +71,6 @@ public class ArraylistInt
     public void clear()
     {
         lista = new int[0];
-        nuevalista = new int [0];
     }
     /**
      * devuelve true o false dependiendo si contiene el elemento pasado por parametro
@@ -147,7 +148,7 @@ public class ArraylistInt
     {
         if (index >= 0 && index < lista.length)
         {
-            nuevalista = new int[lista.length - 1];
+            int[] nuevalista = new int[lista.length - 1];
             boolean borrado = false;
             int cont = 0;
             while (cont < lista.length)
@@ -185,16 +186,9 @@ public class ArraylistInt
      */
     public void set(int index, int elemento)
     {
-        int cont = 0;
-        boolean modificado = false;
-        while (cont < lista.length && modificado == false)
+        if (index >= 0 && index < lista.length)
         {
-            if (index == cont)
-            {
-                lista[cont] = elemento;
-            }
-            cont ++;
+            lista[index] = elemento;
         }
-        nuevalista = lista;
     }
 }
